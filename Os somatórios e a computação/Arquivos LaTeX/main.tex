@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{graphicx,url}
+
+\usepackage{listings}
+
+%\usepackage[brazil]{babel}   
+\usepackage[utf8]{inputenc}  
+
+     
+\sloppy
+
+\title{Os somatórios e a computação}
+
+\author{Maria Carolina Resende Jaudacy\inst{1}}
+
+
+\address{Segundo período do curso de Ciência da Computação\\Pontifícia Universidade Católica de Minas Gerais (PUC MG) - Belo Horizonte -- MG
+  \email{mariacarolina\_bh@hotmail.com}
+}
+
+\begin{document} 
+
+\maketitle
+
+Os somatórios são maneiras de se descrever uma série de somas que se repetem com frequência e obedecem a um determinado padrão matemático. Se tratando de computação e análise de algoritmos, os somatórios são encontrados como a representação do tempo de execução de, por exemplo, laços como \textit{for} e \textit{while} (que podem ser definidos através de somas). 
+
+Geralmente representados pela notação \textit{sigma}, os somatórios podem ser descritos pelo símbolo grego $\Sigma$ acompanhado da regra do somatório na seguinte forma: $\sum_{k=m}^{n} f(k)$, onde \textit{m} representa o limite inferior de \textit{k} (valor mínimo que \textit{k} deve possuir) e \textit{n} representa o limite superior de \textit{k} (valor máximo que \textit{k} poderá atingir) respeitando a regra definida pela função \textit{f(k)}. Um exemplo utilizando-se dessa notação é o somatório de $\pi$ proposto por Leibniz, definido por $\sum_{n=0}^{\infty} \frac{(-1)^{n}}{2n+1} = \frac{\pi}{4}$. Algumas propriedades são atribuidas aos somatórios de forma a caracterizá-los, como:
+
+\begin{itemize}
+    \item{os termos de um somatório podem ser somados sem uma ordem específica;}
+    \item{o somatório de uma constante \textit{k}, por \textit{n} vezes, é igual à \textit{k}.\textit{n};}
+    \item{o somatório do produto de uma constante \textit{k} por uma variável \textit{a} é igual ao produto de uma constante por um somatório: $\sum_{i=1}^{n} k.a_i$ é a mesma coisa que $k.\sum_{i=1}^{n} a_i$;}
+    \item{o somatório da soma/subtração de variáveis é igual a soma/subtração dos somatórios dessas mesmas variáveis: $\sum_{i=1}^{n} (a_i - b_i + c_i)$ é a mesma coisa que $\sum_{i=1}^{n} a_i - \sum_{i=1}^{n} b_i + \sum_{i=1}^{n} c_i$.}
+\end{itemize}
+
+Na análise de algoritmos são encontrados frequentemente alguns tipos de somatórios atrelados à sua análise assintótica (\textit{BigOh}, $\Theta$ e $\Omega$), como por exemplo a \textit{progressão geométrica} e o que podemos chamar de "\textit{aumento fixo}". A progressão geométrica é representada por $\sum_{i=0}^{n} a^i$, onde cada termo é geométricamente maior que o anterior quando \textit{a} é maior que 0 (ocorrendo um crescimento exponencial). Outro exemplo mais simples é o aumento fixo, que recorrentemente é visto dentro da declaração do comando \textit{for}, como exemplificado pelo código abaixo. Sua representação na notação de somatórios é $\sum_{i=1}^{n} 1+2+...+(n-2)+(n-1)+n$.
+\begin{lstlisting}[language=c]
+    int i;
+    for (i = 1; i < 100; i++) {
+        printf("Hello World!");
+    }
+\end{lstlisting}
+
+Assim concluimos que os somatórios se fazem parte importante na computação no que tange a análise de algoritmos e identificação dos custos e benefícios que cada um tem a oferecer, seja contabilizando a quantidade de operações realizadas ou o tempo e recursos necessário para a sua execução.
+
+\nocite{s1}
+\nocite{s2}
+\nocite{s3}
+\nocite{s4}
+
+\bibliographystyle{sbc}
+\bibliography{sbc-template}
+
+\end{document}
